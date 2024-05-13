@@ -1,4 +1,4 @@
-FROM node:21
+FROM node:lts
 
 # Copy restful-booker across
 RUN mkdir /restful-booker
