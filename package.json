@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "cross-env SEED=true node ./bin/www",
-    "test": "jest tests/spec.js",
+    "test": "jest",
     "build_docs": "apidoc -i ./routes/ -o public/apidoc/"
   },
   "dependencies": {
