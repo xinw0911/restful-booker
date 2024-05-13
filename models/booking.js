@@ -54,4 +54,12 @@ exports.delete = function(id, callback){
       callback(null);
     }
   })
+},
+
+exports.deleteAll = function(callback){
+  counter = 0;
+
+  booking.remove({}, function(err){
+    callback();
+  });
 }
