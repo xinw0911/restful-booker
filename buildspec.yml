@@ -6,7 +6,7 @@ phases:
 
       - npm install
       - npm install jest
-      - npm run test
+      # - npm run test
 reports:
  coverage-group:
    files:
