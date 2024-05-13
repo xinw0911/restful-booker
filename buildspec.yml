@@ -1,0 +1,14 @@
+version: 0.2
+
+phases:
+  build:
+    commands:
+
+      - npm install
+      - npm install jest
+      - npm run test
+reports:
+ coverage-group:
+   files:
+     - '**/*'
+   file-format: 'COBERTURAXML'
