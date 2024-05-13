@@ -2,8 +2,8 @@ module.exports = {
   reporters: [
     'default',
     [ 'jest-junit', {
-      outputDirectory: ./,
-      outputName: testreport,
+      outputDirectory: "./",
+      outputName: "testreport",
     } ]
   ],
   collectCoverage: true,
