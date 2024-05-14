@@ -55,44 +55,44 @@ describe('restful-booker - GET /booking', function () {
     });
   });
 
-  // it('responds with all booking ids when GET /booking', function testGetAllBookings(done){
-  //   request(server)
-  //     .post('/booking')
-  //     .send(payload)
-  //     .then(function(){
-  //       return request(server)
-  //         .post('/booking')
-  //         .send(payload2)
-  //     }).then(function(){
-  //       request(server)
-  //         .get('/booking')
-  //         .expect(200)
-  //         .expect(function(res){
-  //           res.body[0].should.have.property('bookingid').and.match(/[0-9]/);
-  //           res.body[1].should.have.property('bookingid').and.match(/[0-9]/);
-  //         })
-  //         .end(done);
-  //     });
-  // });
+  it('responds with all booking ids when GET /booking', function testGetAllBookings(done){
+    request(server)
+      .post('/booking')
+      .send(payload)
+      .then(function(){
+        return request(server)
+          .post('/booking')
+          .send(payload2)
+      }).then(function(){
+        request(server)
+          .get('/booking')
+          .expect(200)
+          .expect(function(res){
+            res.body[0].should.have.property('bookingid').and.match(/[0-9]/);
+            res.body[1].should.have.property('bookingid').and.match(/[0-9]/);
+          })
+          .end(done);
+      });
+  });
 
-  // it('responds with a subset of booking ids when searching by firstname date', function testQueryString(done){
-  //   request(server)
-  //     .post('/booking')
-  //     .send(payload)
-  //     .then(function(){
-  //       return request(server)
-  //         .post('/booking')
-  //         .send(payload2)
-  //     }).then(function(){
-  //       request(server)
-  //         .get('/booking?firstname=Geoff')
-  //         .expect(200)
-  //         .expect(function(res){
-  //           res.body[0].should.have.property('bookingid').and.equal(2);
-  //         })
-  //         .end(done)
-  //     })
-  // });
+  it('responds with a subset of booking ids when searching by firstname date', function testQueryString(done){
+    request(server)
+      .post('/booking')
+      .send(payload)
+      .then(function(){
+        return request(server)
+          .post('/booking')
+          .send(payload2)
+      }).then(function(){
+        request(server)
+          .get('/booking?firstname=Geoff')
+          .expect(200)
+          .expect(function(res){
+            res.body[0].should.have.property('bookingid').and.equal(2);
+          })
+          .end(done)
+      })
+  });
 
   it('responds with a subset of booking ids when searching by lastname date', function testQueryString(done){
     request(server)
