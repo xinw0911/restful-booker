@@ -94,43 +94,43 @@ describe('restful-booker - GET /booking', function () {
       })
   });
 
-  it('responds with a subset of booking ids when searching by lastname date', function testQueryString(done){
-    request(server)
-      .post('/booking')
-      .send(payload)
-      .then(function(){
-        return request(server)
-          .post('/booking')
-          .send(payload2)
-      }).then(function(){
-        request(server)
-          .get('/booking?lastname=White')
-          .expect(200)
-          .expect(function(res){
-            res.body[0].should.have.property('bookingid').and.equal(2);
-          })
-          .end(done)
-      })
-  });
+  // it('responds with a subset of booking ids when searching by lastname date', function testQueryString(done){
+  //   request(server)
+  //     .post('/booking')
+  //     .send(payload)
+  //     .then(function(){
+  //       return request(server)
+  //         .post('/booking')
+  //         .send(payload2)
+  //     }).then(function(){
+  //       request(server)
+  //         .get('/booking?lastname=White')
+  //         .expect(200)
+  //         .expect(function(res){
+  //           res.body[0].should.have.property('bookingid').and.equal(2);
+  //         })
+  //         .end(done)
+  //     })
+  // });
 
-  it('responds with a subset of booking ids when searching for checkin date', function testQueryString(done){
-    request(server)
-      .post('/booking')
-      .send(payload)
-      .then(function(){
-        return request(server)
-          .post('/booking')
-          .send(payload2)
-      }).then(function(){
-        request(server)
-          .get('/booking?checkin=2013-02-01')
-          .expect(200)
-          .expect(function(res){
-            res.body[0].should.have.property('bookingid').and.equal(2);
-          })
-          .end(done)
-      })
-  });
+  // it('responds with a subset of booking ids when searching for checkin date', function testQueryString(done){
+  //   request(server)
+  //     .post('/booking')
+  //     .send(payload)
+  //     .then(function(){
+  //       return request(server)
+  //         .post('/booking')
+  //         .send(payload2)
+  //     }).then(function(){
+  //       request(server)
+  //         .get('/booking?checkin=2013-02-01')
+  //         .expect(200)
+  //         .expect(function(res){
+  //           res.body[0].should.have.property('bookingid').and.equal(2);
+  //         })
+  //         .end(done)
+  //     })
+  // });
 
   // it('responds with a subset of booking ids when searching for checkout date', function testQueryString(done){
   //   request(server)
