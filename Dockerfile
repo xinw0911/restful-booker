@@ -1,5 +1,5 @@
-FROM node:lts
-# FROM node:21.7.3
+# FROM node:lts
+FROM node:21.7.3
 
 # Copy restful-booker across
 RUN mkdir /restful-booker
@@ -10,6 +10,6 @@ COPY ./ ./
 
 RUN npm install
 
-EXPOSE 3001
+EXPOSE 4001
 
 CMD npm start

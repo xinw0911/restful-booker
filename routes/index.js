@@ -656,18 +656,18 @@ router.delete('/booking/:id', function(req, res, next) {
     "token": "abc123"
 }
  */
-// router.post('/auth', function(req, res, next){
-//   if(req.body.username === "admin" && req.body.password === "password123"){
-//     const token = crypto.randomBytes(Math.ceil(15 / 2))
-//         .toString('hex')
-//         .slice(0, 15);
+router.post('/auth', function(req, res, next){
+  if(req.body.username === "admin" && req.body.password === "password123"){
+    const token = crypto.randomBytes(Math.ceil(15 / 2))
+        .toString('hex')
+        .slice(0, 15);
 
-//     globalLogins[token] = true;
+    globalLogins[token] = true;
 
-//     res.send({'token': token});
-//   } else {
-//     res.send({'reason': 'Bad credentials'});
-//   }
-// });
+    res.send({'token': token});
+  } else {
+    res.send({'reason': 'Bad credentials'});
+  }
+});
 
 module.exports = router;
