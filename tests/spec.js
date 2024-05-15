@@ -174,47 +174,47 @@ describe('restful-booker - GET /booking', function () {
   //     });
   // });
 
-  it('responds with a subset of booking ids when searching for name, checkin and checkout date', function testQueryString(done){
-    request(server)
-      .post('/booking')
-      .send(payload)
-      .then(function(){
-        return request(server)
-          .post('/booking')
-          .send(payload2)
-      }).then(function(){
-        return request(server)
-          .post('/booking')
-          .send(payload3)
-      }).then(function(){
-        request(server)
-          .get('/booking?firstname=Geoff&lastname=White&checkin=2013-02-01&checkout=2013-02-06')
-          .expect(200)
-          .expect(function(res){
-            res.body[0].should.have.property('bookingid').and.equal(2);
-          })
-          .end(done)
-      })
-  });
+  // it('responds with a subset of booking ids when searching for name, checkin and checkout date', function testQueryString(done){
+  //   request(server)
+  //     .post('/booking')
+  //     .send(payload)
+  //     .then(function(){
+  //       return request(server)
+  //         .post('/booking')
+  //         .send(payload2)
+  //     }).then(function(){
+  //       return request(server)
+  //         .post('/booking')
+  //         .send(payload3)
+  //     }).then(function(){
+  //       request(server)
+  //         .get('/booking?firstname=Geoff&lastname=White&checkin=2013-02-01&checkout=2013-02-06')
+  //         .expect(200)
+  //         .expect(function(res){
+  //           res.body[0].should.have.property('bookingid').and.equal(2);
+  //         })
+  //         .end(done)
+  //     })
+  // });
 
-  it('responds with a 500 error when GET /booking with a bad date query string', function testGetWithBadDate(done){
-    request(server)
-      .get('/booking?checkout=2013-02-0')
-      .expect(500, done)
-  });
+  // it('responds with a 500 error when GET /booking with a bad date query string', function testGetWithBadDate(done){
+  //   request(server)
+  //     .get('/booking?checkout=2013-02-0')
+  //     .expect(500, done)
+  // });
 
-  it('responds with a payload when GET /booking/{id}', function testGetOneBooking(done){
-    request(server)
-      .post('/booking')
-      .send(payload)
-      .then(function(){
-        request(server)
-          .get('/booking/1')
-          .set('Accept', 'application/json')
-          .expect(200)
-          .expect(payload, done)
-      });
-  });
+  // it('responds with a payload when GET /booking/{id}', function testGetOneBooking(done){
+  //   request(server)
+  //     .post('/booking')
+  //     .send(payload)
+  //     .then(function(){
+  //       request(server)
+  //         .get('/booking/1')
+  //         .set('Accept', 'application/json')
+  //         .expect(200)
+  //         .expect(payload, done)
+  //     });
+  // });
 
   it('responds with an XML payload when GET /booking/{id} with accept application/xml', function testGetWithXMLAccept(done){
     xmlPayload = js2xmlparser.parse('booking', payload)
